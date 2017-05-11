@@ -16,7 +16,9 @@ One table is created "user" - used only to demonstrate basic auth.
 
 Headers:
 
+```
 X-Auth-SITE-ID:ADMIN
+```
 
 Body:
 ```shell
@@ -30,13 +32,12 @@ Body:
 
 Headers:
 
+```
 X-Auth-id-ADMIN:1
-
 X-Auth-SITE-ID:ADMIN
-
 X-Auth-Token-ADMIN:bZS9bHxXMi6I0dXx7841xlNxD3eeHABO7kaQuBsazie5KdxeUpBkWSMAPDC1kh
-
 Content-Type:application/json
+```
 
 Body:
 
@@ -46,13 +47,16 @@ Body:
 
 Headers:
 
+```
 X-Auth-id-ADMIN:1
 X-Auth-SITE-ID:ADMIN
 X-Auth-Token-ADMIN:bZS9bHxXMi6I0dXx7841xlNxD3eeHABO7kaQuBsazie5KdxeUpBkWSMAPDC1kh
 Content-Type:application/json
+```
 
 Body:
 
+```shell
 {
   "permission_reminder" : "You're receiving this email because you signed up for updates about Freddie's newest hats.",
   "email_type_option" : true,
@@ -74,7 +78,7 @@ Body:
     "address2" : "Suite 5000"
   }
 }
-
+```
 
 ### Add Member to List 
 
@@ -82,13 +86,16 @@ Body:
 
 Headers:
 
+```
 X-Auth-id-ADMIN:1
 X-Auth-SITE-ID:ADMIN
 X-Auth-Token-ADMIN:bZS9bHxXMi6I0dXx7841xlNxD3eeHABO7kaQuBsazie5KdxeUpBkWSMAPDC1kh
 Content-Type:application/json
+```
 
 Body:
 
+```shell
 {
   "status" : "subscribed",
   "email_address" : "paul@paullaney.com.au",
@@ -97,7 +104,7 @@ Body:
     "LNAME": "Laney"
   }
 }
-
+```
 
 ### Update Member in a list 
 
@@ -105,16 +112,29 @@ Body:
 
 Headers:
 
+```
 X-Auth-id-ADMIN:1
 X-Auth-SITE-ID:ADMIN
 X-Auth-Token-ADMIN:bZS9bHxXMi6I0dXx7841xlNxD3eeHABO7kaQuBsazie5KdxeUpBkWSMAPDC1kh
 Content-Type:application/json
+```
 
 Body:
 
+```shell
 {
   "merge_fields": {
     "FNAME": "New",
     "LNAME": "Laney"
   }
 }
+
+```
+
+## test
+
+Run:
+
+```shell
+vendor/bin/codecept run -vv
+```
