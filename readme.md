@@ -19,20 +19,23 @@ Headers:
 X-Auth-SITE-ID:ADMIN
 
 Body:
-
+```shell
 {
 	"password" : "password",
 	"username": "admin"
 }
-
+```
 ### Get Lists 
 /api/v1/mailchimp/list - GET
 
 Headers:
 
 X-Auth-id-ADMIN:1
+
 X-Auth-SITE-ID:ADMIN
+
 X-Auth-Token-ADMIN:bZS9bHxXMi6I0dXx7841xlNxD3eeHABO7kaQuBsazie5KdxeUpBkWSMAPDC1kh
+
 Content-Type:application/json
 
 Body:
