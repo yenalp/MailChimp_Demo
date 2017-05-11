@@ -10,7 +10,7 @@ One table is created "user" - used only to demonstrate basic auth.
 
 ## Api calls 
 
-# Login
+### Login
 
 /api/v1/user/login - GET
 
@@ -25,7 +25,7 @@ Body:
 	"username": "admin"
 }
 
-# Get Lists 
+### Get Lists 
 /api/v1/mailchimp/list - GET
 
 Headers:
@@ -37,7 +37,7 @@ Content-Type:application/json
 
 Body:
 
-# Create List 
+### Create List 
 
 /api/v1/mailchimp/list/create - POST
 
@@ -73,7 +73,7 @@ Body:
 }
 
 
-# Add Member to List 
+### Add Member to List 
 
 /api/v1/mailchimp/list/[list_id]/member/create - POST
 
@@ -96,7 +96,7 @@ Body:
 }
 
 
-# Update Member in a list 
+### Update Member in a list 
 
 /api/v1/mailchimp/list/[list_id]/member/update/[member_id] - PATCH
 
@@ -115,8 +115,3 @@ Body:
     "LNAME": "Laney"
   }
 }
-
-
-## License
-
-The Lumen framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
