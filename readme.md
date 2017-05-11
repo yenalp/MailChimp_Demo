@@ -1,14 +1,16 @@
 # MailChimp V3 Demo
 
 Using Laravel Lumen 5.4 to connect to Mailchimp V3 Api.
+
 There is only 3 calls to the api "create list", "add member to list" and "update member in list"
 
 ## Setup
 
-This api has been built using postgres db. 
-One table is created "user" - used only to demonstrate basic auth.
+This api has been built using postgres db.
 
 ## Api calls 
+
+Once you login you will need to update the "X-Auth-Token-ADMIN:" for all other calls 
 
 ### Login
 
