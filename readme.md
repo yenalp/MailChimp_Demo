@@ -1,20 +1,121 @@
-# Lumen PHP Framework
+# MailChimp V3 Demo
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://poser.pugx.org/laravel/lumen-framework/d/total.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/lumen-framework/v/stable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/lumen-framework/v/unstable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://poser.pugx.org/laravel/lumen-framework/license.svg)](https://packagist.org/packages/laravel/lumen-framework)
+Using Laravel Lumen 5.4 to connect to Mailchimp V3 Api.
+There is only 3 calls to the api "create list", "add member to list" and "update member in list"
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+## Setup
 
-## Official Documentation
+This api has been built using postgres db. 
+One table is created "user" - used only to demonstrate basic auth.
 
-Documentation for the framework can be found on the [Lumen website](http://lumen.laravel.com/docs).
+## Api calls 
 
-## Security Vulnerabilities
+# Login
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+/api/v1/user/login - GET
+
+Headers:
+
+X-Auth-SITE-ID:ADMIN
+
+Body:
+
+{
+	"password" : "password",
+	"username": "admin"
+}
+
+# Get Lists 
+/api/v1/mailchimp/list - GET
+
+Headers:
+
+X-Auth-id-ADMIN:1
+X-Auth-SITE-ID:ADMIN
+X-Auth-Token-ADMIN:bZS9bHxXMi6I0dXx7841xlNxD3eeHABO7kaQuBsazie5KdxeUpBkWSMAPDC1kh
+Content-Type:application/json
+
+Body:
+
+# Create List 
+
+/api/v1/mailchimp/list/create - POST
+
+Headers:
+
+X-Auth-id-ADMIN:1
+X-Auth-SITE-ID:ADMIN
+X-Auth-Token-ADMIN:bZS9bHxXMi6I0dXx7841xlNxD3eeHABO7kaQuBsazie5KdxeUpBkWSMAPDC1kh
+Content-Type:application/json
+
+Body:
+
+{
+  "permission_reminder" : "You're receiving this email because you signed up for updates about Freddie's newest hats.",
+  "email_type_option" : true,
+  "name" : "Paul Test",
+  "campaign_defaults" : {
+    "from_email" : "freddie@freddiehats.com",
+    "language" : "en",
+    "subject" : "",
+    "from_name" : "Freddie"
+  },
+  "contact" : {
+    "phone" : "",
+    "city" : "Atlanta",
+    "address1" : "675 Ponce De Leon Ave NE",
+    "country" : "US",
+    "company" : "MailChimp",
+    "zip" : "30308",
+    "state" : "GA",
+    "address2" : "Suite 5000"
+  }
+}
+
+
+# Add Member to List 
+
+/api/v1/mailchimp/list/[list_id]/member/create - POST
+
+Headers:
+
+X-Auth-id-ADMIN:1
+X-Auth-SITE-ID:ADMIN
+X-Auth-Token-ADMIN:bZS9bHxXMi6I0dXx7841xlNxD3eeHABO7kaQuBsazie5KdxeUpBkWSMAPDC1kh
+Content-Type:application/json
+
+Body:
+
+{
+  "status" : "subscribed",
+  "email_address" : "paul@paullaney.com.au",
+  "merge_fields": {
+    "FNAME": "Paul",
+    "LNAME": "Laney"
+  }
+}
+
+
+# Update Member in a list 
+
+/api/v1/mailchimp/list/[list_id]/member/update/[member_id] - PATCH
+
+Headers:
+
+X-Auth-id-ADMIN:1
+X-Auth-SITE-ID:ADMIN
+X-Auth-Token-ADMIN:bZS9bHxXMi6I0dXx7841xlNxD3eeHABO7kaQuBsazie5KdxeUpBkWSMAPDC1kh
+Content-Type:application/json
+
+Body:
+
+{
+  "merge_fields": {
+    "FNAME": "New",
+    "LNAME": "Laney"
+  }
+}
+
 
 ## License
 
